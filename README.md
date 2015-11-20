@@ -171,12 +171,12 @@ function create_my_taxonomies() {
         'orderby' => 'date',
         'numberposts' => -1
           ) 
-        ); $nCount = 1; ?>
+        ); ?>
           
           <?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
             <h1><?php the_title(); ?></h1>
             <?php the_content(); ?>
-          <?php $nCount++; endwhile; wp_reset_query(); ?>
+          <?php endwhile; wp_reset_query(); ?>
 ```
 ## Plugins
 ### <a name="attachments"></a>Attachments Plugin
