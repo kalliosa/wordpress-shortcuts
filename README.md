@@ -9,6 +9,8 @@ My most used WordPress shortcuts
 - [Register Sidebars](#sidebars)
 - [Thumbnails and Image Sizes](#add-image-size)
 - [Pagination (by Kriesi)](#pagination-kriesi)
+- [Custom Post Types](#custom-post-types)
+- [Custom Post Taxonomies](#custom-taxonomies)
 
 ## Plugins
 - [Attachments Plugin](#attachments)
@@ -101,6 +103,62 @@ function kriesi_pagination($pages = '', $range = 2)
 Code for template:
 ```
 kriesi_pagination();
+```
+### <a name="custom-post-types"></a>Custom Post Types
+Register post type
+```
+add_action( 'init', 'create_mycpt' );
+
+function create_mycpt() {
+    register_post_type( 'postname',
+        array(
+            'labels' => array(
+                'name' => 'MYCPT',
+                'singular_name' => 'Mycpt',
+                'add_new' => 'Add new',
+                'add_new_item' => 'Add new custom post ',
+                'edit' => 'Edit',
+                'edit_item' => 'Edit custom post',
+                'new_item' => 'New custom post',
+                'view' => 'View',
+                'view_item' => 'View post',
+                'search_items' => 'Search posts',
+                'not_found' => 'No custom posts',
+                'not_found_in_trash' => 'Trash is empty',
+                'parent' => ''
+            ),
+            'public' => true,
+            'menu_position' => 15,
+            'menu_icon' => IMAGES . '/box-icon.png',
+            'supports' => array( 'title', 'thumbnail', 'editor' ),
+            'taxonomies' => array( '' ),
+            'has_archive' => false,
+            'publicly_queryable' => false
+        )
+    );
+}
+```
+### <a name="custom-taxonomies"></a>Custom Post Taxonomies
+Add Categories to Custom Post Types
+```
+add_action( 'init', 'create_my_taxonomies', 0 );
+
+function create_my_taxonomies() {
+    register_taxonomy(
+        'mycpt_cat',
+        'mycpt',
+        array(
+            'labels' => array(
+                'name' => 'Category name',
+                'add_new_item' => 'Add new',
+                'new_item_name' => "Add new"
+            ),
+            'show_ui' => true,
+            'show_tagcloud' => false,
+            'hierarchical' => true
+        )
+    );
+}
 ```
 ## Plugins
 ### <a name="attachments"></a>Attachments Plugin
