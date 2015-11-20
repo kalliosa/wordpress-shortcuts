@@ -1,4 +1,4 @@
-# Wordpress Shortcuts
+# WordPress Shortcuts
 My most used WordPress shortcuts
 
 ## WordPress Functions
