@@ -11,6 +11,7 @@ My most used WordPress shortcuts
 - [Pagination (by Kriesi)](#pagination-kriesi)
 - [Custom Post Types](#custom-post-types)
 - [Custom Post Taxonomies](#custom-taxonomies)
+- [Loop Custom Posts](#loop-custom-posts)
 
 ## Plugins
 - [Attachments Plugin](#attachments)
@@ -159,6 +160,23 @@ function create_my_taxonomies() {
         )
     );
 }
+```
+### <a name="loop-custom-posts"></a>Loop Custom Posts
+```
+<?php
+        $posts = new WP_Query(
+        array(    
+        'post_type' => 'mycpt',   
+        'order' => 'DESC',
+        'orderby' => 'date',
+        'numberposts' => -1
+          ) 
+        ); $nCount = 1; ?>
+          
+          <?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
+            <h1><?php the_title(); ?></h1>
+            <?php the_content(); ?>
+          <?php $nCount++; endwhile; wp_reset_query(); ?>
 ```
 ## Plugins
 ### <a name="attachments"></a>Attachments Plugin
