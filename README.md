@@ -33,7 +33,7 @@ add_action('wp_enqueue_scripts', 'my_scripts_method');
 ### <a name="register-navs"></a>Register Navigation menus
 ```
 register_nav_menus( array(
-    'name' => 'Admin Side Name',
+    'name' => 'Main Menu',
     'name-2' => 'Second Menu'
 ) );
 ```
