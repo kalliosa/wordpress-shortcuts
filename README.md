@@ -16,6 +16,9 @@ My most used WordPress shortcuts
 ## Plugins
 - [Attachments Plugin](#attachments)
 
+## Database
+- [Replace old URL with new](#new-url)
+
 ## WordPress Functions
 ### <a name="themeroot"></a>Theme root
 ```
@@ -233,4 +236,9 @@ function my_attachments( $attachments )
   $attachments->register( 'my_attachments', $args ); // unique instance name
 }
 add_action( 'attachments_register', 'my_attachments' );
+```
+## Database
+### <a name="new-url"></a>Replace old URL with new
+```
+update wp_posts set post_content = replace(post_content, 'http:\/\/oldurl.com', 'http:\/\/newurl.com');
 ```
