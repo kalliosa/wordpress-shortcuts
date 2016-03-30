@@ -12,6 +12,7 @@ My most used WordPress shortcuts
 - [Custom Post Types](#custom-post-types)
 - [Custom Post Taxonomies](#custom-taxonomies)
 - [Loop Custom Posts](#loop-custom-posts)
+- [Find ID of Top-Most Parent Page] (#find-id)
 
 ## Plugins
 - [Attachments Plugin](#attachments)
@@ -180,6 +181,20 @@ function create_my_taxonomies() {
             <h1><?php the_title(); ?></h1>
             <?php the_content(); ?>
           <?php endwhile; wp_reset_query(); ?>
+```
+### <a name="find-id"></a>Find ID of Top-Most Parent Page
+```
+<?php
+
+if ($post->post_parent)	{
+	$ancestors=get_post_ancestors($post->ID);
+	$root=count($ancestors)-1;
+	$parent = $ancestors[$root];
+} else {
+	$parent = $post->ID;
+}
+
+?>
 ```
 ## Plugins
 ### <a name="attachments"></a>Attachments Plugin
