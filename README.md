@@ -12,7 +12,7 @@ My most used WordPress shortcuts
 - [Custom Post Types](#custom-post-types)
 - [Custom Post Taxonomies](#custom-taxonomies)
 - [Loop Custom Posts](#loop-custom-posts)
-- [Find ID of Top-Most Parent Page] (#find-id)
+- [Find ID of Top-Most Parent Page](#find-id)
 
 ## Plugins
 - [Attachments Plugin](#attachments)
