@@ -13,7 +13,7 @@ My most used WordPress codes.
 - [Custom Post Taxonomies](#custom-taxonomies)
 - [Loop Custom Posts](#loop-custom-posts)
 - [Find ID of Top-Most Parent Page](#find-id)
-- Breadcrumbs
+- [Breadcrumbs](#breadcrumbs)
 
 ## Database
 - [Replace old URL with new](#new-url)
