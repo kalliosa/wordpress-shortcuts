@@ -20,15 +20,15 @@ My most used WordPress codes.
 
 ## WordPress Functions
 ### <a name="themeroot"></a>Theme root
-```
+```php
 define('THEMEROOT', get_stylesheet_directory_uri());
 ```
 ### <a name="images-folder"></a> Set Images folder
-```
+```php
 define('IMAGES', THEMEROOT . '/images');
 ```
 ### <a name="load-scripts"></a>Load jQuery and other Scripts after footer
-```
+```php
 function my_scripts_method() {
     wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', array(), false, true);
@@ -37,14 +37,14 @@ function my_scripts_method() {
 add_action('wp_enqueue_scripts', 'my_scripts_method');
 ```
 ### <a name="register-navs"></a>Register Navigation menus
-```
+```php
 register_nav_menus( array(
     'name' => 'Main Menu',
     'name-2' => 'Second Menu'
 ) );
 ```
 ### <a name="sidebars"></a>Sidebars
-```
+```php
 register_sidebar( array(
 		'name' => __( 'Main Sidebar', 'sivut' ),
 		'id' => 'sidebar-1',
@@ -56,16 +56,16 @@ register_sidebar( array(
 ```
 ### <a name="add-image-size"></a>Thumbnais and Images Sizes
 #### Set Default Thumbnail Size
-```
+```php
 set_post_thumbnail_size( 50, 50, false ); // false = images will be scaled, true = images will be cropped
 ```
 #### Add new Image Size
-```
+```php
 add_image_size( 'imagename', 130, 180, true ); // false = images will be scaled, true = images will be cropped
 ```
 ### <a name="pagination-kriesi"></a>Pagination (by Kriesi)
 From [Kriesi's blog](http://www.kriesi.at/archives/how-to-build-a-wordpress-post-pagination-without-plugin)
-```
+```php
 function kriesi_pagination($pages = '', $range = 2)
 {  
      $showitems = ($range * 2)+1;  
@@ -104,12 +104,12 @@ function kriesi_pagination($pages = '', $range = 2)
 }
 ```
 Code for template:
-```
+```php
 kriesi_pagination();
 ```
 ### <a name="custom-post-types"></a>Custom Post Types
 Register post type
-```
+```php
 add_action( 'init', 'create_mycpt' );
 
 function create_mycpt() {
@@ -143,7 +143,7 @@ function create_mycpt() {
 ```
 ### <a name="custom-taxonomies"></a>Custom Post Taxonomies
 Add Categories to Custom Post Types
-```
+```php
 add_action( 'init', 'create_my_taxonomies', 0 );
 
 function create_my_taxonomies() {
@@ -164,7 +164,7 @@ function create_my_taxonomies() {
 }
 ```
 ### <a name="loop-custom-posts"></a>Loop Custom Posts
-```
+```php
 <?php
         $posts = new WP_Query(
         array(    
@@ -181,7 +181,7 @@ function create_my_taxonomies() {
           <?php endwhile; wp_reset_query(); ?>
 ```
 ### <a name="find-id"></a>Find ID of Top-Most Parent Page
-```
+```php
 <?php
 
 if ($post->post_parent)	{
@@ -195,7 +195,7 @@ if ($post->post_parent)	{
 ?>
 ```
 ### <a name="breadcrumbs"></a>Breadcrumbs
-```
+```php
 function haaja_breadcrumbs() {
 
 	/* === OPTIONS === */
